@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  tasks:
+          - name: Install rsync dependency for the synchronize module
+            package:
+                    name: rsync
+                    state: present
+
+          - name: Install pip junitparser dependency
+            pip:
+                    name: junitparser
+
+          - name: REQUIRED Copies the Regexable Test Models to the remote tmp so that the Factory can find them
+            synchronize:
+                    src: "{{ playbook_dir }}/module_utils/test_result_parser/test_models"
+                    dest: "/tmp/"
+
+          - name: Parse ib_write_bw test output and produces an JUnit/XUnit xml file (see README.md for options)
+            test_result_parser:
+                    json_or_xml: 'xml'
+                    test_output_path: '{{ playbook_dir }}/{{ item }}'
+                    test_threshold: '50.0'
+                    junit_write_path: '{{ playbook_dir }}/'
+                    extra_flags: '55'
+            with_items:
+                    - 'ibtestsbw'
+                    - 'ibtestlat'
+                    - 'ibtest'

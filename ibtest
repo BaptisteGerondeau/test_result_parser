@@ -1,0 +1,20 @@
+zsh:1: command not found: q
+                    RDMA_Write Bidirectional BW Test
+ Dual-port       : OFF		Device         : mlx5_0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ TX depth        : 128
+ CQ Moderation   : 100
+ Mtu             : 4096[B]
+ Link type       : IB
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0x04 QPN 0x008b PSN 0x7e9e61 RKey 0x006134 VAddr 0x00ffffb8090000
+ remote address: LID 0x04 QPN 0x008c PSN 0x377ead RKey 0x00673c VAddr 0x00ffffa6c70000
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[Gb/sec]    BW average[Gb/sec]   MsgRate[Mpps]
+ 65536      5000             48.56              48.54  		   0.092587
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
